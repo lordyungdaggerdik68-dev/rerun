@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rerun">
+<title>Rerun</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<meta name="theme-color" id="themeColor" content="#E52D27">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+/* Layout: 2015-era tablet video app. Coloured top bar with icon tabs, grey ground with white cards,
+   watch screen = pinned player on top, one scrolling column below (info, channel, Up next, comments last). */
+:root{
+  --bar:#E52D27; --bar-ink:#ffffff; --bar-ink-dim:rgba(255,255,255,.62);
+  --accent:#E52D27; --accent-ink:#ffffff;
+  --bg:#EEEEEE; --card:#ffffff; --ink:#222222; --ink-2:#767676; --line:#e0e0e0;
+  --chip:#f1f1f1; --shadow:0 1px 2px rgba(0,0,0,.14);
+  --font:'Roboto', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bar:#B3221E; --bar-ink:#ffffff; --bar-ink-dim:rgba(255,255,255,.6);
+  --accent:#F0453F; --accent-ink:#ffffff;
+  --bg:#141414; --card:#1f1f1f; --ink:#ececec; --ink-2:#a0a0a0; --line:#2e2e2e;
+  --chip:#2a2a2a; --shadow:0 1px 2px rgba(0,0,0,.5); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bar:#B3221E; --bar-ink:#ffffff; --bar-ink-dim:rgba(255,255,255,.6);
+  --accent:#F0453F; --accent-ink:#ffffff;
+  --bg:#141414; --card:#1f1f1f; --ink:#ececec; --ink-2:#a0a0a0; --line:#2e2e2e;
+  --chip:#2a2a2a; --shadow:0 1px 2px rgba(0,0,0,.5); color-scheme:dark }
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 var(--font);-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+svg{width:24px;height:24px;fill:currentColor;flex:none}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--bar);color:var(--bar-ink);box-shadow:0 2px 4px rgba(0,0,0,.18);
+  padding-top:env(safe-area-inset-top,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.top-row{display:flex;align-items:center;gap:12px;height:56px;padding:0 16px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:500;font-size:20px;letter-spacing:.2px}
+.brand svg{width:28px;height:28px}
+.top-row .spacer{flex:1}
+.icon-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:50%}
+.search{display:flex;align-items:center;gap:8px;flex:1;max-width:640px}
+.search input{flex:1;min-width:0;height:36px;border:0;border-radius:2px;padding:0 12px;font:inherit;font-size:16px;background:var(--card);color:var(--ink)}
+.tabs{display:flex}
+.tab{flex:1;height:48px;display:grid;place-items:center;color:var(--bar-ink-dim);position:relative}
+.tab[aria-selected="true"]{color:var(--bar-ink)}
+.tab[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--bar-ink)}
+
+/* ---------- pages ---------- */
+main{padding-block:12px 96px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px))}
+.section-title{font-size:15px;font-weight:500;margin:16px 4px 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.card{background:var(--card);box-shadow:var(--shadow);border-radius:2px}
+.vcard{display:flex;flex-direction:column;text-align:left;width:100%;overflow:hidden}
+.thumb{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.dur{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.82);color:#fff;font-size:12px;font-weight:500;padding:1px 4px;border-radius:2px;font-variant-numeric:tabular-nums}
+.vmeta{display:flex;gap:12px;padding:12px}
+.vtext{min-width:0;flex:1}
+.vtitle{font-size:15px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vsub{color:var(--ink-2);font-size:13px;margin-top:4px}
+.avatar{width:36px;height:36px;border-radius:50%;flex:none;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:500;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.note{padding:16px;color:var(--ink-2);line-height:1.5}
+.note b{color:var(--ink)}
+.rows{display:flex;flex-direction:column;gap:1px;background:var(--line)}
+.row{display:flex;gap:12px;padding:10px 12px;background:var(--card);text-align:left;width:100%;align-items:flex-start}
+.row .thumb{width:168px;flex:none}
+.row .vtitle{font-size:14px}
+
+.bubbles{display:flex;gap:16px;overflow-x:auto;padding:12px;scrollbar-width:none}
+.bubble{display:flex;flex-direction:column;align-items:center;gap:6px;width:68px;flex:none;font-size:12px;color:var(--ink-2);text-align:center}
+.bubble .avatar{width:56px;height:56px;font-size:20px}
+.bubble span{width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.field{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 16px}
+.field input{flex:1;min-width:0;height:40px;border:1px solid var(--line);border-radius:2px;padding:0 10px;font:inherit;font-size:16px;background:var(--bg);color:var(--ink)}
+.btn{height:40px;padding:0 16px;border-radius:2px;background:var(--accent);color:var(--accent-ink);font-weight:500;text-transform:uppercase;letter-spacing:.5px;font-size:13px}
+.btn.quiet{background:var(--chip);color:var(--ink)}
+
+/* ---------- watch screen ---------- */
+.watch{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;background:#000;
+  padding-top:env(safe-area-inset-top,0px);transition:transform .22s ease}
+.watch.mini{inset:auto;right:calc(12px + env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));
+  width:min(320px,58vw);padding:0;box-shadow:0 6px 18px rgba(0,0,0,.4);background:#000}
+.watch.mini .watch-scroll{display:none}
+.player{position:relative;width:100%;aspect-ratio:16/9;max-height:60vh;background:#000;flex:none}
+.watch.mini .player{max-height:none}
+.player .yt, .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.overlay{position:absolute;inset:0;z-index:2;touch-action:none;user-select:none;-webkit-user-select:none}
+.overlay.passthrough{pointer-events:none}
+.ctrls{position:absolute;inset:0;background:rgba(0,0,0,.45);color:#fff;opacity:0;transition:opacity .2s;pointer-events:none}
+.ctrls.show{opacity:1;pointer-events:auto}
+.watch.mini .ctrls{display:none}
+.ctrl-top{position:absolute;top:4px;left:4px;right:4px;display:flex;align-items:center}
+.ctrl-top .spacer{flex:1}
+.ctrl-mid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:48px;pointer-events:none}
+.ctrl-mid button{pointer-events:auto}
+.ctrl-mid .big svg{width:56px;height:56px}
+.ctrl-mid .side svg{width:36px;height:36px}
+.ctrl-bot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:0 6px 4px 14px;font-size:12px;font-variant-numeric:tabular-nums}
+.ctrl-bot input[type=range]{flex:1;min-width:0;height:24px;-webkit-appearance:none;appearance:none;background:transparent}
+.ctrl-bot input[type=range]::-webkit-slider-runnable-track{height:3px;background:linear-gradient(to right,var(--accent) var(--p,0%),rgba(255,255,255,.35) var(--p,0%))}
+.ctrl-bot input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent);margin-top:-5.5px}
+.ctrl-bot input[type=range]::-moz-range-track{height:3px;background:rgba(255,255,255,.35)}
+.ctrl-bot input[type=range]::-moz-range-progress{height:3px;background:var(--accent)}
+.ctrl-bot input[type=range]::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:var(--accent)}
+.seek-flash{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border-radius:24px;padding:8px 14px;font-size:13px;font-weight:500;opacity:0;transition:opacity .25s;pointer-events:none;z-index:3}
+.seek-flash.l{left:10%} .seek-flash.r{right:10%} .seek-flash.show{opacity:1}
+.mini-x{position:absolute;top:2px;right:2px;z-index:4;color:#fff;background:rgba(0,0,0,.55);width:30px;height:30px;border-radius:50%;display:none;place-items:center}
+.mini-x svg{width:18px;height:18px}
+.watch.mini .mini-x{display:grid}
+.yt-error{position:absolute;inset:0;z-index:1;display:grid;place-items:center;text-align:center;color:#fff;padding:16px;background:#111}
+.yt-error a{color:#fff}
+
+.watch-scroll{flex:1;overflow-y:auto;background:var(--bg);-webkit-overflow-scrolling:touch;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+.block{background:var(--card);border-bottom:1px solid var(--line);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.info{padding-block:14px 4px}
+.title-row{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:left}
+.title-row h1{font-size:18px;font-weight:400;line-height:1.3;margin:0;flex:1;min-width:0;text-wrap:balance}
+.title-row svg{color:var(--ink-2);transition:transform .2s;margin-top:1px}
+.title-row[aria-expanded="true"] svg{transform:rotate(180deg)}
+.views{color:var(--ink-2);margin-top:4px;font-variant-numeric:tabular-nums}
+.desc{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink);font-size:13px;line-height:1.5;padding:8px 0 4px}
+.desc .pub{color:var(--ink-2);display:block;margin-bottom:6px}
+.actions{display:flex;justify-content:space-around;padding:6px 0 4px}
+.act{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:64px;padding:6px;color:var(--ink-2);font-size:12px;font-variant-numeric:tabular-nums}
+.act[aria-pressed="true"]{color:var(--accent)}
+.chan{display:flex;align-items:center;gap:12px;padding-block:12px}
+.chan .avatar{width:40px;height:40px}
+.chan-name{font-weight:500}
+.chan-subs{color:var(--ink-2);font-size:12px}
+.chan .grow{flex:1;min-width:0}
+.sub{display:flex;align-items:stretch;border-radius:2px;overflow:hidden;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.4px}
+.sub .s1{background:var(--accent);color:var(--accent-ink);padding:8px 12px;display:flex;align-items:center;gap:4px}
+.sub .s1 svg{width:18px;height:18px}
+.sub .s2{background:var(--chip);color:var(--ink-2);padding:8px 10px;font-variant-numeric:tabular-nums}
+.sub[aria-pressed="true"] .s1{background:var(--chip);color:var(--ink-2)}
+.upnext-head{display:flex;align-items:center;justify-content:space-between;padding-block:12px 4px}
+.upnext-head h2,.comments-head h2{font-size:14px;font-weight:500;margin:0}
+.switch{display:flex;align-items:center;gap:8px;color:var(--ink-2);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+.track{width:34px;height:14px;border-radius:7px;background:var(--line);position:relative;transition:background .2s}
+.track::after{content:"";position:absolute;top:-3px;left:-2px;width:20px;height:20px;border-radius:50%;background:#fafafa;box-shadow:0 1px 3px rgba(0,0,0,.35);transition:transform .2s,background .2s}
+.switch[aria-checked="true"] .track{background:color-mix(in srgb,var(--accent) 50%,transparent)}
+.switch[aria-checked="true"] .track::after{transform:translateX(18px);background:var(--accent)}
+.watch .rows{background:transparent;gap:0}
+.watch .row{padding:8px 0;background:transparent}
+.watch .row .thumb{width:min(168px,40%)}
+.upnext-first{border-bottom:1px solid var(--line);padding-bottom:4px;margin-bottom:4px}
+.comments-head{padding-block:16px 8px}
+.comment{display:flex;gap:12px;padding:10px 0}
+.comment .avatar{width:32px;height:32px;font-size:13px}
+.comment .who{font-size:12px;color:var(--ink-2)}
+.comment .who b{color:var(--ink);font-weight:500}
+.comment p{margin:2px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.comment .likes{font-size:12px;color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:4px}
+.comment .likes svg{width:14px;height:14px}
+.muted{color:var(--ink-2);padding:12px 0}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:#323232;color:#fff;padding:12px 20px;border-radius:2px;font-size:14px;opacity:0;transition:.2s;z-index:100;pointer-events:none;max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ⋮ menu on the player (2015 app kept extras behind a three-dot menu) */
+.menu{position:absolute;top:44px;right:8px;z-index:5;background:var(--card);color:var(--ink);border-radius:2px;box-shadow:0 4px 14px rgba(0,0,0,.4);padding:6px 0;min-width:240px;max-width:calc(100% - 16px)}
+.menu button,.menu a{display:flex;align-items:center;gap:14px;width:100%;padding:11px 16px;text-align:left;font-size:14px;color:var(--ink);text-decoration:none}
+.menu svg{width:20px;height:20px;color:var(--ink-2)}
+
+/* closer-to-2015 watch details: smaller title, compact counts, slimmer channel row, smaller Up next */
+.title-row h1{font-size:16px;line-height:1.35}
+.views{font-size:13px}
+.actions{justify-content:flex-start;gap:4px;padding:8px 0 10px;margin-left:-8px}
+.act{flex-direction:row;gap:6px;min-width:0;padding:6px 10px;font-size:13px}
+.act svg{width:20px;height:20px}
+.act .lbl{display:none}
+.chan{padding-block:10px}
+.chan .avatar{width:36px;height:36px}
+.chan-name{font-size:14px}
+.sub{font-size:12px}
+.sub .s1{padding:6px 10px}
+.sub .s2{padding:6px 8px}
+.watch .row{padding:6px 0;gap:10px}
+.watch .row .thumb{width:min(150px,38%)}
+.watch .row .vtitle{font-size:13.5px}
+.watch .row .vsub{font-size:12px;margin-top:2px}
+
+@media (max-width:520px){ .row .thumb{width:40%} .ctrl-mid{gap:28px} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="currentColor" opacity=".18"/><path d="M16 5a11 11 0 1 1-10.6 8h3.2A8 8 0 1 0 16 8v3.5L10.5 6.5 16 1.5z"/><path d="M13.5 11.5v9l7-4.5z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></symbol>
+  <symbol id="i-subs" viewBox="0 0 24 24"><path d="M20 8H4V6h16v2zm-2-6H6v2h12V2zm4 10v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2zm-6 4-6-3.27v6.53L16 16z"/></symbol>
+  <symbol id="i-acct" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16a6.47 6.47 0 0 0 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><path d="M12 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11.24V7.5a2.5 2.5 0 0 1 5 0v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11a2 2 0 0 0-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10a2 2 0 0 0 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></symbol>
+  <symbol id="i-dn" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2a2 2 0 0 0 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5a2 2 0 0 0-2-2zm4 0v12h4V3h-4z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></symbol>
+  <symbol id="i-add" viewBox="0 0 24 24"><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="top-row" id="barMain">
+    <div class="brand"><svg><use href="#i-logo"/></svg>Rerun</div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="openSearch" aria-label="Search"><svg><use href="#i-search"/></svg></button>
+  </div>
+  <form class="top-row" id="barSearch" hidden>
+    <button type="button" class="icon-btn" id="closeSearch" aria-label="Close search"><svg><use href="#i-back"/></svg></button>
+    <div class="search"><input id="q" type="search" placeholder="Search, or paste a YouTube link" autocomplete="off" enterkeyhint="search"></div>
+    <button type="submit" class="icon-btn" aria-label="Go"><svg><use href="#i-search"/></svg></button>
+  </form>
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="home" aria-selected="true" aria-label="Home"><svg><use href="#i-home"/></svg></button>
+    <button class="tab" role="tab" data-tab="subs" aria-selected="false" aria-label="Subscriptions"><svg><use href="#i-subs"/></svg></button>
+    <button class="tab" role="tab" data-tab="acct" aria-selected="false" aria-label="Account"><svg><use href="#i-acct"/></svg></button>
+  </nav>
+</header>
+
+<main id="page"></main>
+
+<section class="watch" id="watch" hidden aria-label="Now playing">
+  <div class="player" id="player">
+    <div class="yt"><div id="yt"></div></div>
+    <div class="yt-error" id="ytError" hidden></div>
+    <div class="overlay" id="overlay">
+      <div class="seek-flash l" id="flashL">« 10 seconds</div>
+      <div class="seek-flash r" id="flashR">10 seconds »</div>
+      <div class="ctrls" id="ctrls">
+        <div class="ctrl-top">
+          <button class="icon-btn" id="btnMin" aria-label="Minimise"><svg><use href="#i-down"/></svg></button>
+          <div class="spacer"></div>
+          <button class="icon-btn" id="btnMore" aria-label="More options" aria-expanded="false"><svg><use href="#i-more"/></svg></button>
+        </div>
+        <div class="menu" id="moreMenu" hidden>
+          <button id="btnTouch"><svg><use href="#i-hand"/></svg>Skip ad (taps go to video for 8s)</button>
+          <a id="btnOpen" target="_blank" rel="noopener"><svg><use href="#i-open"/></svg>Open on YouTube</a>
+        </div>
+        <div class="ctrl-mid">
+          <button class="side" id="btnPrev" aria-label="Previous video"><svg><use href="#i-prev"/></svg></button>
+          <button class="big" id="btnPlay" aria-label="Play"><svg><use href="#i-play" id="playIcon"/></svg></button>
+          <button class="side" id="btnNext" aria-label="Next video"><svg><use href="#i-next"/></svg></button>
+        </div>
+        <div class="ctrl-bot">
+          <span id="tCur">0:00</span>
+          <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek">
+          <span id="tDur">0:00</span>
+          <button class="icon-btn" id="btnFull" aria-label="Full screen"><svg><use href="#i-full"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <button class="mini-x" id="miniClose" aria-label="Close player"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <div class="watch-scroll" id="watchScroll"></div>
+</section>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ---------------- storage ---------------- */
+const LS = {
+  get(k, d){ try{ const v = localStorage.getItem('rerun_'+k); return v===null ? d : JSON.parse(v) }catch(e){ return d } },
+  set(k, v){ try{ localStorage.setItem('rerun_'+k, JSON.stringify(v)) }catch(e){} }
+};
+const S = {
+  key: LS.get('key',''), subs: LS.get('subs',[]), history: LS.get('history',[]),
+  later: LS.get('later',[]), liked: LS.get('liked',[]), autoplay: LS.get('autoplay',true),
+  tab: 'home', current: null, upnext: [], back: []
+};
+
+/* Demo picks (all from 2015) used until an API key is added. */
+const DEMO = [
+  {id:'YQHsXMglC9A', title:'Adele - Hello', channelTitle:'AdeleVEVO'},
+  {id:'fRh_vgS2dFE', title:'Justin Bieber - Sorry (PURPOSE : The Movement)', channelTitle:'JustinBieberVEVO'},
+  {id:'YqeW9_5kURI', title:'Major Lazer & DJ Snake - Lean On (feat. MØ)', channelTitle:'Major Lazer Official'},
+  {id:'uxpDa-c-4Mc', title:'Drake - Hotline Bling', channelTitle:'DrakeVEVO'},
+  {id:'OPf0YbXqDm0', title:'Mark Ronson - Uptown Funk ft. Bruno Mars', channelTitle:'MarkRonsonVEVO'},
+  {id:'RgKAFK5djSk', title:'Wiz Khalifa - See You Again ft. Charlie Puth', channelTitle:'Wiz Khalifa'},
+  {id:'jNQXAC9IVRw', title:'Me at the zoo', channelTitle:'jawed'},
+  {id:'9bZkp7q19f0', title:'PSY - GANGNAM STYLE M/V', channelTitle:'officialpsy'}
+];
+
+/* ---------------- helpers ---------------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const thumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+const num = n => n==null ? '' : Number(n).toLocaleString('en-AU');
+function short(n){ if(n==null) return ''; n=+n; if(n>=1e9) return (n/1e9).toFixed(1).replace(/\.0$/,'')+'B'; if(n>=1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M'; if(n>=1e3) return (n/1e3).toFixed(n>=1e4?0:1).replace(/\.0$/,'')+'K'; return String(n) }
+function ago(iso){ if(!iso) return ''; const s=(Date.now()-new Date(iso))/1000; const u=[['year',31536000],['month',2592000],['week',604800],['day',86400],['hour',3600],['minute',60]]; for(const [n,v] of u){ const k=Math.floor(s/v); if(k>=1) return `${k} ${n}${k>1?'s':''} ago` } return 'just now' }
+function isoDur(d){ if(!d) return ''; const m=d.match(/P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/); if(!m) return ''; const h=(+m[1]||0)*24+(+m[2]||0), mi=+m[3]||0, s=+m[4]||0; return h ? `${h}:${String(mi).padStart(2,'0')}:${String(s).padStart(2,'0')}` : `${mi}:${String(s).padStart(2,'0')}` }
+function clock(t){ t=Math.max(0,Math.floor(t||0)); const h=Math.floor(t/3600), m=Math.floor(t%3600/60), s=t%60; return h?`${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`:`${m}:${String(s).padStart(2,'0')}` }
+function initial(name){ return esc((name||'?').trim().charAt(0).toUpperCase()) }
+function avatarHTML(name, img){ return `<div class="avatar">${img?`<img src="${esc(img)}" alt="">`:initial(name)}</div>` }
+let toastT; function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2200) }
+function parseId(s){ s=(s||'').trim(); const m=s.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/); if(m) return m[1]; if(/^[\w-]{11}$/.test(s) && /[\d_-]/.test(s)) return s; return null }
+
+/* ---------------- YouTube Data API ---------------- */
+async function yt(path, params){
+  const u = new URL('https://www.googleapis.com/youtube/v3/'+path);
+  Object.entries({...params, key:S.key}).forEach(([k,v])=>u.searchParams.set(k,v));
+  const r = await fetch(u); const j = await r.json();
+  if(j.error) throw new Error(j.error.message || 'Request failed');
+  return j;
+}
+function fromVideo(it){
+  const sn=it.snippet||{}, st=it.statistics||{}, cd=it.contentDetails||{};
+  return { id:it.id, title:sn.title, channelId:sn.channelId, channelTitle:sn.channelTitle, published:sn.publishedAt,
+    description:sn.description, views:st.viewCount, likes:st.likeCount, comments:st.commentCount, duration:isoDur(cd.duration) };
+}
+async function videosById(ids){
+  ids = ids.filter(Boolean); if(!ids.length) return [];
+  const j = await yt('videos',{part:'snippet,statistics,contentDetails', id:ids.slice(0,50).join(','), maxResults:50});
+  const map = new Map(j.items.map(i=>[i.id, fromVideo(i)]));
+  return ids.map(id=>map.get(id)).filter(Boolean);
+}
+
+/* ---------------- rendering bits ---------------- */
+function vcard(v){
+  const sub = [v.channelTitle, v.views!=null?short(v.views)+' views':'', ago(v.published)].filter(Boolean).join(' · ');
+  return `<button class="card vcard" data-play="${esc(v.id)}">
+    <div class="thumb"><img loading="lazy" src="${thumb(v.id)}" alt="">${v.duration?`<span class="dur">${v.duration}</span>`:''}</div>
+    <div class="vmeta">${avatarHTML(v.channelTitle)}<div class="vtext"><div class="vtitle">${esc(v.title)}</div><div class="vsub">${esc(sub)}</div></div></div>
+  </button>`;
+}
+function vrow(v){
+  const sub = [v.views!=null?short(v.views)+' views':'', ago(v.published)].filter(Boolean).join(' · ');
+  return `<button class="row" data-play="${esc(v.id)}">
+    <div class="thumb"><img loading="lazy" src="${thumb(v.id)}" alt="">${v.duration?`<span class="dur">${v.duration}</span>`:''}</div>
+    <div class="vtext"><div class="vtitle">${esc(v.title)}</div><div class="vsub">${esc(v.channelTitle||'')}</div>${sub?`<div class="vsub">${esc(sub)}</div>`:''}</div>
+  </button>`;
+}
+const cache = new Map(); // id -> video object, so tapping a card has data immediately
+function remember(list){ list.forEach(v=>cache.set(v.id,v)); return list }
+
+const page = $('#page');
+async function showTab(tab){
+  S.tab = tab;
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', String(t.dataset.tab===tab)));
+  window.scrollTo(0,0);
+  if(tab==='home') return renderHome();
+  if(tab==='subs') return renderSubs();
+  if(tab==='acct') return renderAcct();
+}
+
+const FILE_WARN = location.protocol==='file:' ? `<div class="card note" style="margin-bottom:12px"><b>Videos won't play when this file is opened directly.</b> Close this tab, open the Rerun folder, and double-click <b>Start Rerun</b> instead. The address bar should then say localhost:8080.</div>` : '';
+async function renderHome(){
+  if(!S.key){
+    remember(DEMO);
+    page.innerHTML = FILE_WARN + `<div class="card note"><b>Demo mode.</b> These are a few videos from 2015 so you can try the watch screen. Add a free YouTube API key in the Account tab to get search, view counts, Up next and comments.</div>
+      <h2 class="section-title">From 2015</h2><div class="grid">${DEMO.map(vcard).join('')}</div>`;
+    return;
+  }
+  page.innerHTML = `<div class="card note">Loading…</div>`;
+  try{
+    const j = await yt('videos',{part:'snippet,statistics,contentDetails', chart:'mostPopular', regionCode:'AU', maxResults:24});
+    const list = remember(j.items.map(fromVideo));
+    const subsFeed = S.subs.length ? await subsUploads(6) : [];
+    page.innerHTML = (subsFeed.length?`<h2 class="section-title">From your subscriptions</h2><div class="grid">${subsFeed.map(vcard).join('')}</div>`:'')
+      + `<h2 class="section-title">Trending in Australia</h2><div class="grid">${list.map(vcard).join('')}</div>`;
+  }catch(e){ page.innerHTML = `<div class="card note"><b>Couldn't load videos.</b> ${esc(e.message)}<br>Check your API key in the Account tab.</div>` }
+}
+
+async function channelUploads(channelId, n){
+  const c = await yt('channels',{part:'contentDetails', id:channelId});
+  const pl = c.items?.[0]?.contentDetails?.relatedPlaylists?.uploads; if(!pl) return [];
+  const p = await yt('playlistItems',{part:'contentDetails', playlistId:pl, maxResults:n});
+  return videosById(p.items.map(i=>i.contentDetails.videoId));
+}
+async function subsUploads(per){
+  const all = (await Promise.all(S.subs.slice(0,12).map(s=>channelUploads(s.id, per).catch(()=>[])))).flat();
+  return remember(all.sort((a,b)=>new Date(b.published)-new Date(a.published)).slice(0,24));
+}
+
+async function renderSubs(){
+  const bubbles = S.subs.length
+    ? `<div class="card bubbles">${S.subs.map(s=>`<div class="bubble">${avatarHTML(s.title, s.img)}<span>${esc(s.title)}</span></div>`).join('')}</div>`
+    : `<div class="card note">No subscriptions yet. Tap <b>Subscribe</b> under any video and the channel shows up here.</div>`;
+  page.innerHTML = bubbles + (S.subs.length && !S.key ? `<div class="card note" style="margin-top:12px">Add an API key in Account to see new uploads from these channels.</div>` : '');
+  if(S.subs.length && S.key){
+    page.insertAdjacentHTML('beforeend', `<div id="subFeed" class="card note" style="margin-top:12px">Loading uploads…</div>`);
+    try{ const list = await subsUploads(8); $('#subFeed').outerHTML = `<h2 class="section-title">Latest uploads</h2><div class="grid">${list.map(vcard).join('')}</div>` }
+    catch(e){ $('#subFeed').innerHTML = `<b>Couldn't load uploads.</b> ${esc(e.message)}` }
+  }
+}
+
+function renderAcct(){
+  const list = (title, arr) => `<h2 class="section-title">${title}</h2>` + (arr.length
+    ? `<div class="card rows">${arr.slice(0,30).map(vrow).join('')}</div>`
+    : `<div class="card note">Nothing here yet.</div>`);
+  page.innerHTML = `
+    <div class="card">
+      <h2 class="section-title" style="margin:0;padding:16px 16px 4px">YouTube API key</h2>
+      <p class="note" style="padding-top:4px">Free from Google Cloud Console → APIs &amp; Services → enable “YouTube Data API v3” → Credentials → Create API key. It stays on this device.</p>
+      <form class="field" id="keyForm"><input id="keyInput" type="text" autocomplete="off" spellcheck="false" placeholder="Paste your key" value="${esc(S.key)}"><button class="btn" type="submit">Save</button>${S.key?'<button class="btn quiet" type="button" id="keyClear">Remove</button>':''}</form>
+    </div>
+    ${list('Watch later', S.later)}
+    ${list('Liked', S.liked)}
+    ${list('History', S.history)}
+    ${S.history.length?'<div style="padding:12px 4px"><button class="btn quiet" id="clearHist">Clear history</button></div>':''}`;
+  remember([...S.later, ...S.liked, ...S.history]);
+  $('#keyForm').onsubmit = async e => {
+    e.preventDefault(); const k = $('#keyInput').value.trim(); if(!k) return;
+    const old = S.key; S.key = k;
+    try{ await yt('videos',{part:'id', chart:'mostPopular', maxResults:1}); LS.set('key',k); toast('Key saved'); renderAcct() }
+    catch(err){ S.key = old; toast('That key didn’t work: '+err.message) }
+  };
+  $('#keyClear') && ($('#keyClear').onclick = () => { S.key=''; LS.set('key',''); toast('Key removed'); renderAcct() });
+  $('#clearHist') && ($('#clearHist').onclick = () => { S.history=[]; LS.set('history',[]); toast('History cleared'); renderAcct() });
+}
+
+async function runSearch(q){
+  const id = parseId(q);
+  if(id) return openVideo(id);
+  if(!S.key){ page.innerHTML = `<div class="card note"><b>Search needs an API key.</b> Add one in the Account tab, or paste a YouTube link into the search box to play it.</div>`; return }
+  page.innerHTML = `<div class="card note">Searching…</div>`;
+  try{
+    const j = await yt('search',{part:'id', type:'video', q, maxResults:20, regionCode:'AU'});
+    const list = remember(await videosById(j.items.map(i=>i.id.videoId)));
+    page.innerHTML = `<h2 class="section-title">Results for “${esc(q)}”</h2>` + (list.length?`<div class="card rows">${list.map(vrow).join('')}</div>`:`<div class="card note">No results.</div>`);
+  }catch(e){ page.innerHTML = `<div class="card note"><b>Search failed.</b> ${esc(e.message)}</div>` }
+}
+
+/* ---------------- player ---------------- */
+let player=null, apiReady=false, playerReady=false, pendingId=null, playing=false;
+window.onYouTubeIframeAPIReady = () => { apiReady = true; if(pendingId) loadPlayer(pendingId) };
+function loadPlayer(id){
+  $('#ytError').hidden = true;
+  $('#btnOpen').href = 'https://www.youtube.com/watch?v='+id;
+  if(!apiReady){ pendingId = id; return }
+  if(!player){
+    pendingId = id;
+    player = new YT.Player('yt', { videoId:id, width:'100%', height:'100%',
+      playerVars:{ autoplay:1, controls:0, playsinline:1, rel:0, iv_load_policy:3, fs:0, disablekb:1, modestbranding:1 },
+      events:{
+        onReady: () => { playerReady = true; if(pendingId && pendingId!==id) player.loadVideoById(pendingId); pendingId=null; showCtrls() },
+        onStateChange: e => { playing = e.data===1; setPlayIcon(); if(e.data===0) ended(); if(playing) hideCtrlsSoon() },
+        onError: e => showYtError(e.data)
+      }});
+    return;
+  }
+  if(playerReady) player.loadVideoById(id); else pendingId = id;
+}
+function showYtError(code){
+  const id = S.current?.id;
+  const why = (code===101||code===150||code===153) ? 'The uploader doesn’t allow this video to play outside YouTube.' : code===100 ? 'This video is unavailable.' : 'This video can’t be played here.';
+  const box = $('#ytError'); box.hidden = false;
+  box.innerHTML = `<div>${why}<br><br><a href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener">Watch it on YouTube</a></div>`;
+}
+function setPlayIcon(){ $('#playIcon').setAttribute('href', playing?'#i-pause':'#i-play'); $('#btnPlay').setAttribute('aria-label', playing?'Pause':'Play') }
+function ended(){ if(S.autoplay && S.upnext[0]) openVideo(S.upnext[0].id, {fromAutoplay:true}) }
+
+const ctrls = $('#ctrls'); let hideT;
+function showCtrls(){ ctrls.classList.add('show'); hideCtrlsSoon() }
+function hideCtrlsSoon(){ clearTimeout(hideT); hideT = setTimeout(()=>{ if(playing && document.getElementById('moreMenu').hidden) ctrls.classList.remove('show') }, 3000) }
+function toggleCtrls(){ if(ctrls.classList.contains('show')){ ctrls.classList.remove('show'); closeMenu() } else showCtrls() }
+
+setInterval(()=>{
+  if(!playerReady || !player.getDuration) return;
+  const d = player.getDuration()||0, c = player.getCurrentTime()||0;
+  $('#tDur').textContent = clock(d);
+  if(!seeking){ $('#tCur').textContent = clock(c); const p = d? c/d*1000 : 0; seekEl.value = p; seekEl.style.setProperty('--p', p/10+'%') }
+}, 250);
+const seekEl = $('#seek'); let seeking=false;
+seekEl.addEventListener('input', ()=>{ seeking=true; showCtrls(); const d=player?.getDuration?.()||0; $('#tCur').textContent = clock(seekEl.value/1000*d); seekEl.style.setProperty('--p', seekEl.value/10+'%') });
+seekEl.addEventListener('change', ()=>{ const d=player?.getDuration?.()||0; player?.seekTo?.(seekEl.value/1000*d, true); seeking=false });
+
+$('#btnPlay').onclick = () => { if(!playerReady) return; playing ? player.pauseVideo() : player.playVideo(); showCtrls() };
+$('#btnNext').onclick = () => { if(S.upnext[0]) openVideo(S.upnext[0].id) };
+$('#btnPrev').onclick = () => {
+  if(playerReady && player.getCurrentTime() > 5){ player.seekTo(0,true); return }
+  const prev = S.back.pop(); if(prev) openVideo(prev, {noPush:true}); else player?.seekTo?.(0,true);
+};
+$('#btnMin').onclick = () => minimise();
+$('#miniClose').onclick = e => { e.stopPropagation(); closeWatch() };
+const moreMenu = $('#moreMenu');
+function closeMenu(){ moreMenu.hidden = true; $('#btnMore').setAttribute('aria-expanded','false') }
+$('#btnMore').onclick = e => { e.stopPropagation(); const open = moreMenu.hidden; moreMenu.hidden = !open; $('#btnMore').setAttribute('aria-expanded', String(open)); showCtrls(); clearTimeout(hideT) };
+$('#btnOpen').addEventListener('click', closeMenu);
+$('#btnTouch').onclick = () => { closeMenu(); const o=$('#overlay'); o.classList.add('passthrough'); ctrls.classList.remove('show'); toast('Taps go to the video for 8 seconds'); setTimeout(()=>o.classList.remove('passthrough'), 8000) };
+$('#btnFull').onclick = () => {
+  const el = $('#player');
+  const fs = document.fullscreenElement || document.webkitFullscreenElement;
+  if(fs){ (document.exitFullscreen||document.webkitExitFullscreen).call(document); return }
+  const req = el.requestFullscreen || el.webkitRequestFullscreen;
+  if(req) Promise.resolve(req.call(el)).catch(()=>toast('Full screen isn’t available here. Turn the iPad sideways instead.'));
+  else toast('Full screen isn’t available here. Turn the iPad sideways instead.');
+};
+
+/* gestures on the player: tap = controls, double-tap sides = ±10s, drag down = minimise, mini: tap = restore, swipe sideways = close */
+const watch = $('#watch'), overlay = $('#overlay');
+let g = null, lastTap = 0;
+overlay.addEventListener('pointerdown', e => {
+  if(e.target.closest('button, input, a')) return;
+  g = {x:e.clientX, y:e.clientY, dx:0, dy:0, drag:false};
+  overlay.setPointerCapture(e.pointerId);
+});
+overlay.addEventListener('pointermove', e => {
+  if(!g) return;
+  g.dx = e.clientX-g.x; g.dy = e.clientY-g.y;
+  const mini = watch.classList.contains('mini');
+  if(!g.drag && (Math.abs(g.dx)>10 || Math.abs(g.dy)>10)) g.drag = true;
+  if(!g.drag) return;
+  watch.style.transition = 'none';
+  if(mini) watch.style.transform = `translateX(${g.dx}px)`, watch.style.opacity = String(Math.max(.3, 1-Math.abs(g.dx)/300));
+  else if(g.dy>0 && Math.abs(g.dy)>Math.abs(g.dx)) watch.style.transform = `translateY(${g.dy}px)`;
+});
+overlay.addEventListener('pointerup', e => {
+  if(!g) return; const mini = watch.classList.contains('mini');
+  watch.style.transition = ''; watch.style.transform = ''; watch.style.opacity = '';
+  if(g.drag){
+    if(mini && Math.abs(g.dx)>90) closeWatch();
+    else if(!mini && g.dy>110) minimise();
+  } else if(mini){ restore() }
+  else {
+    const now = Date.now(), w = overlay.clientWidth, x = e.clientX - overlay.getBoundingClientRect().left;
+    if(now-lastTap < 320 && playerReady && (x < w/3 || x > w*2/3)){
+      const fwd = x > w*2/3; player.seekTo(Math.max(0, player.getCurrentTime() + (fwd?10:-10)), true);
+      const f = $(fwd?'#flashR':'#flashL'); f.classList.add('show'); setTimeout(()=>f.classList.remove('show'), 600);
+      lastTap = 0;
+    } else if(!moreMenu.hidden){ closeMenu() }
+    else { lastTap = now; toggleCtrls() }
+  }
+  g = null;
+});
+overlay.addEventListener('pointercancel', () => { g=null; watch.style.transform=''; watch.style.opacity=''; watch.style.transition='' });
+
+function minimise(){ watch.classList.add('mini'); ctrls.classList.remove('show'); document.body.style.overflow='' }
+function restore(){ watch.classList.remove('mini'); document.body.style.overflow='hidden'; showCtrls() }
+function closeWatch(){ player?.stopVideo?.(); watch.hidden = true; watch.classList.remove('mini'); document.body.style.overflow=''; S.current=null }
+
+/* ---------------- watch page ---------------- */
+const scrollEl = $('#watchScroll');
+async function openVideo(id, opts={}){
+  if(S.current && S.current.id!==id && !opts.noPush) S.back.push(S.current.id);
+  let v = cache.get(id) || {id, title:'', channelTitle:''};
+  S.current = v; S.upnext = [];
+  watch.hidden = false; watch.classList.remove('mini'); document.body.style.overflow='hidden';
+  loadPlayer(id);
+  renderWatch();
+  scrollEl.scrollTop = 0;
+
+  if(S.key && (v.views==null || !v.channelId)){
+    try{ const [full] = await videosById([id]); if(full && S.current?.id===id){ cache.set(id, full); S.current = v = full; renderWatch() } }catch(e){}
+  } else if(!S.key && !v.title){
+    try{ const r = await fetch('https://noembed.com/embed?url='+encodeURIComponent('https://www.youtube.com/watch?v='+id)); const j = await r.json();
+      if(j.title && S.current?.id===id){ v = {...v, title:j.title, channelTitle:j.author_name||''}; cache.set(id,v); S.current=v; renderWatch() } }catch(e){}
+  }
+  addHistory(v);
+  loadChannel(v); loadUpNext(v); loadComments(v);
+}
+function addHistory(v){ S.history = [v, ...S.history.filter(h=>h.id!==v.id)].slice(0,100); LS.set('history', S.history) }
+const inList = (arr,id) => arr.some(x=>x.id===id);
+
+function renderWatch(){
+  const v = S.current; if(!v) return;
+  const subbed = v.channelId && inList(S.subs, v.channelId);
+  const chan = S.chanInfo && S.chanInfo.id===v.channelId ? S.chanInfo : null;
+  scrollEl.innerHTML = `
+    <div class="block info">
+      <button class="title-row" id="titleBtn" aria-expanded="false"><h1>${esc(v.title || 'Loading…')}</h1><svg><use href="#i-down"/></svg></button>
+      <div class="views">${v.views!=null ? num(v.views)+' views' : '&nbsp;'}</div>
+      <div class="desc" id="desc" hidden>${v.published?`<span class="pub">Published ${new Date(v.published).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</span>`:''}${esc(v.description || 'No description.')}</div>
+      <div class="actions">
+        <button class="act" id="aLike" aria-label="Like" aria-pressed="${inList(S.liked,v.id)}"><svg><use href="#i-up"/></svg>${v.likes!=null?short(v.likes):''}</button>
+        <button class="act" id="aDislike" aria-label="Dislike" aria-pressed="false"><svg><use href="#i-dn"/></svg></button>
+        <button class="act" id="aShare" aria-label="Share"><svg><use href="#i-share"/></svg></button>
+        <button class="act" id="aAdd" aria-label="Add to Watch later" aria-pressed="${inList(S.later,v.id)}"><svg><use href="#i-add"/></svg></button>
+      </div>
+    </div>
+    <div class="block chan">
+      ${avatarHTML(v.channelTitle, chan?.img)}
+      <div class="grow"><div class="chan-name">${esc(v.channelTitle||'')}</div>${chan?.subs!=null?`<div class="chan-subs">${short(chan.subs)} subscribers</div>`:''}</div>
+      ${v.channelId || !S.key ? `<button class="sub" id="subBtn" aria-pressed="${!!subbed}"><span class="s1"><svg><use href="${subbed?'#i-check':'#i-plus'}"/></svg>${subbed?'Subscribed':'Subscribe'}</span>${chan?.subs!=null?`<span class="s2">${short(chan.subs)}</span>`:''}</button>` : ''}
+    </div>
+    <div class="block">
+      <div class="upnext-head"><h2>Up next</h2>
+        <button class="switch" id="autoBtn" role="switch" aria-checked="${S.autoplay}">Autoplay<span class="track"></span></button></div>
+      <div id="upnext">${upNextHTML()}</div>
+    </div>
+    <div class="block">
+      <div class="comments-head"><h2>Comments${v.comments!=null?' · '+num(v.comments):''}</h2></div>
+      <div id="comments">${S.commentsHTML && S.commentsFor===v.id ? S.commentsHTML : `<div class="muted">${S.key?'Loading comments…':'Comments load once you add a YouTube API key in the Account tab.'}</div>`}</div>
+    </div>`;
+  $('#titleBtn').onclick = e => { const b=e.currentTarget, open=b.getAttribute('aria-expanded')!=='true'; b.setAttribute('aria-expanded',open); $('#desc').hidden=!open };
+  $('#aLike').onclick = () => toggleList('liked', 'Added to Liked videos', 'Removed from Liked videos');
+  $('#aDislike').onclick = e => { const b=e.currentTarget; const on=b.getAttribute('aria-pressed')!=='true'; b.setAttribute('aria-pressed',on); if(on && inList(S.liked,v.id)) toggleList('liked') };
+  $('#aAdd').onclick = () => toggleList('later', 'Saved to Watch later', 'Removed from Watch later');
+  $('#aShare').onclick = async () => {
+    const url = 'https://youtu.be/'+v.id;
+    try{ if(navigator.share){ await navigator.share({title:v.title, url}); return } }catch(e){ if(e.name==='AbortError') return }
+    try{ await navigator.clipboard.writeText(url); toast('Link copied') }catch(e){ toast(url) }
+  };
+  $('#autoBtn').onclick = e => { S.autoplay=!S.autoplay; LS.set('autoplay',S.autoplay); e.currentTarget.setAttribute('aria-checked', S.autoplay) };
+  $('#subBtn') && ($('#subBtn').onclick = () => {
+    if(!v.channelId){ toast('Add an API key in Account to subscribe to channels'); return }
+    if(inList(S.subs, v.channelId)){ S.subs = S.subs.filter(s=>s.id!==v.channelId); toast('Unsubscribed') }
+    else { S.subs = [{id:v.channelId, title:v.channelTitle, img:chan?.img||''}, ...S.subs]; toast('Subscribed to '+v.channelTitle) }
+    LS.set('subs', S.subs); renderWatch();
+  });
+}
+function toggleList(name, onMsg, offMsg){
+  const v = S.current, arr = S[name];
+  if(inList(arr, v.id)){ S[name] = arr.filter(x=>x.id!==v.id); offMsg && toast(offMsg) }
+  else { S[name] = [v, ...arr].slice(0,200); onMsg && toast(onMsg) }
+  LS.set(name, S[name]); renderWatch();
+}
+function upNextHTML(){
+  if(!S.upnext.length) return `<div class="muted">${S.key?'Loading…':''}</div>`;
+  const [first, ...rest] = S.upnext;
+  return `<div class="rows upnext-first">${vrow(first)}</div><div class="rows">${rest.map(vrow).join('')}</div>`;
+}
+
+async function loadChannel(v){
+  if(!S.key || !v.channelId) return;
+  try{
+    const j = await yt('channels',{part:'snippet,statistics', id:v.channelId}); const c = j.items?.[0]; if(!c) return;
+    S.chanInfo = {id:c.id, img:c.snippet?.thumbnails?.default?.url, subs:c.statistics?.hiddenSubscriberCount?null:c.statistics?.subscriberCount};
+    const s = S.subs.find(x=>x.id===c.id); if(s && !s.img){ s.img = S.chanInfo.img; LS.set('subs',S.subs) }
+    if(S.current?.id===v.id) renderWatch();
+  }catch(e){}
+}
+async function loadUpNext(v){
+  const id = v.id;
+  if(!S.key){ S.upnext = DEMO.filter(d=>d.id!==id); $('#upnext') && ($('#upnext').innerHTML = upNextHTML()); return }
+  try{
+    const words = (v.title||'').replace(/[\(\[].*?[\)\]]/g,'').split(/\s+/).slice(0,5).join(' ');
+    const [chanList, searchIds] = await Promise.all([
+      v.channelId ? channelUploads(v.channelId, 10).catch(()=>[]) : [],
+      words ? yt('search',{part:'id', type:'video', q:words, maxResults:15, relevanceLanguage:'en'}).then(j=>j.items.map(i=>i.id.videoId)).catch(()=>[]) : []
+    ]);
+    const searchList = await videosById(searchIds).catch(()=>[]);
+    const seen = new Set([id]), out = [];
+    const a = searchList, b = chanList;
+    for(let i=0; i<Math.max(a.length,b.length); i++) for(const x of [a[i], b[i]]) if(x && !seen.has(x.id)){ seen.add(x.id); out.push(x) }
+    if(S.current?.id!==id) return;
+    S.upnext = remember(out.slice(0,20));
+    $('#upnext') && ($('#upnext').innerHTML = upNextHTML() || '<div class="muted">Nothing to suggest.</div>');
+  }catch(e){ $('#upnext') && ($('#upnext').innerHTML = `<div class="muted">Couldn't load Up next: ${esc(e.message)}</div>`) }
+}
+async function loadComments(v){
+  if(!S.key) return;
+  const id = v.id; S.commentsFor = null;
+  let html;
+  try{
+    const j = await yt('commentThreads',{part:'snippet', videoId:id, maxResults:25, order:'relevance', textFormat:'plainText'});
+    html = j.items.length ? j.items.map(t=>{ const c=t.snippet.topLevelComment.snippet;
+      return `<div class="comment">${avatarHTML(c.authorDisplayName, c.authorProfileImageUrl)}<div class="vtext">
+        <div class="who"><b>${esc(c.authorDisplayName.replace(/^@/,''))}</b> · ${ago(c.publishedAt)}</div>
+        <p>${esc(c.textDisplay)}</p>${c.likeCount?`<div class="likes"><svg><use href="#i-up"/></svg>${short(c.likeCount)}</div>`:''}</div></div>` }).join('')
+      : '<div class="muted">No comments yet.</div>';
+  }catch(e){ html = /disabled/i.test(e.message) ? '<div class="muted">Comments are turned off for this video.</div>' : `<div class="muted">Couldn't load comments: ${esc(e.message)}</div>` }
+  if(S.current?.id!==id) return;
+  S.commentsHTML = html; S.commentsFor = id;
+  $('#comments') && ($('#comments').innerHTML = html);
+}
+
+/* ---------------- wiring ---------------- */
+document.addEventListener('click', e => { const b = e.target.closest('[data-play]'); if(b){ e.preventDefault(); openVideo(b.dataset.play) } });
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => { closeSearch(); if(!watch.hidden && !watch.classList.contains('mini')) minimise(); showTab(t.dataset.tab) });
+function closeSearch(){ $('#barSearch').hidden = true; $('#barMain').hidden = false }
+$('#openSearch').onclick = () => { $('#barMain').hidden = true; $('#barSearch').hidden = false; $('#q').focus() };
+$('#closeSearch').onclick = () => { closeSearch(); showTab(S.tab) };
+function goSearch(){ const q = $('#q').value.trim(); if(!q) return; $('#q').blur(); if(!watch.hidden && !watch.classList.contains('mini') && !parseId(q)) minimise(); runSearch(q) }
+$('#barSearch').onsubmit = e => { e.preventDefault(); goSearch() };
+/* Pasting a YouTube link plays it straight away, no need to press Enter. */
+$('#q').addEventListener('paste', () => setTimeout(() => { if(parseId($('#q').value)) goSearch() }, 0));
+
+showTab('home');
+
+/* Status-bar tint: black while watching (like the 2015 app), red while browsing. */
+function tint(){ const w=document.getElementById('watch'); const black = !w.hidden && !w.classList.contains('mini');
+  const m=document.getElementById('themeColor'); if(m) m.setAttribute('content', black ? '#000000' : getComputedStyle(document.documentElement).getPropertyValue('--bar').trim() || '#E52D27') }
+new MutationObserver(tint).observe(document.getElementById('watch'), {attributes:true, attributeFilter:['hidden','class']});
+tint();
+/* Open a video straight from the address: ?v=VIDEO_ID or ?v=<full YouTube link> */
+(() => { try{ const p = new URLSearchParams(location.search).get('v'); const id = p && parseId(p); if(id) openVideo(id) }catch(e){} })();
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
